@@ -31,6 +31,20 @@ pub struct BGRA<ComponentType, AlphaComponentType = ComponentType> {
     pub a: AlphaComponentType,
 }
 
+impl<T> BGRA<T> {
+    #[inline(always)]
+    pub fn new(r: T, g: T, b: T, a: T) -> Self {
+        Self {b,g,r,a}
+    }
+}
+
+impl<T, A> BGRA<T,A> {
+    #[inline(always)]
+    pub fn new_alpha(r: T, g: T, b: T, a: A) -> Self {
+        Self {b,g,r,a}
+    }
+}
+
 pub type BGR8 = BGR<u8>;
 
 /// 16-bit BGR in machine's native endian
